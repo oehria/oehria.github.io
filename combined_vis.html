@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+Skill rating per course participant<br>
+<button onclick="over_update('information_vis')">Information Visualization</button>
+<button onclick="over_update('statistics')">Statistics</button>
+<button onclick="over_update('mathematics')">Maths</button>
+<button onclick="over_update('arts')">Art</button>
+<button onclick="over_update('computer')">Computer</button>
+<button onclick="over_update('coding')">Coding</button>
+<button onclick="over_update('graphics_coding')">Graphics coding</button>
+<button onclick="over_update('HCI')">HCI</button>
+<button onclick="over_update('UX')">UX</button>
+<button onclick="over_update('communication')">Communication</button>
+<button onclick="over_update('collaboration')">Collaboration</button>
+<button onclick="over_update('repository')">Repository</button>
+
+<input type="checkbox" id="sort_checkbox" checked>
+<label for="sort_checkbox">Order Data</label>
+
+<div id="overview_bar"></div>
+Combined Group Skills <br>
+
+<FONT COLOR="#ac92eb"> Member 1 </FONT>
+<select id="member1">
+  <option value="Nobody">-</option>
+  <option value="Soup">Soup</option>
+  <option value="vq">vq</option>
+  <option value="jjettas">jjettas</option>
+  <option value="SunnyStockholm">SunnyStockholm</option>
+  <option value="Yami">Yami</option>
+  <option value="pringles">pringles</option>
+  <option value="Oseram">Oseram</option>
+  <option value="Rizzlord">Rizzlord</option>
+  <option value="Koronesuki">Koronesuki</option>
+  <option value="Daybeha">Daybeha</option>
+  <option value="Pasta">Pasta</option>
+  <option value="PogChamp">PogChamp</option>
+  <option value="Ropianos">Ropianos</option>
+  <option value="Horse123">Horse123</option>
+  <option value="Rebin">Rebin</option>
+  <option value="Ishi">Ishi</option>
+  <option value="xXVisWizXx">xXVisWizXx</option>
+  <option value="Turb0clutcharen">Turb0clutcharen</option>
+  <option value="kanelbullar13">kanelbullar13</option>
+  <option value="Skvarre">Skvarre</option>
+  <option value="Pål">Pål</option>
+  <option value="Modi">Modi</option>
+  <option value="Bluebell">Bluebell</option>
+  <option value="Noggin_bops">Noggin_bops</option>
+  <option value="Lumos">Lumos</option>
+  <option value="Santa86">Santa86</option>
+  <option value="mercury">mercury</option>
+  <option value="DonkeyKong1">DonkeyKong1</option>
+  <option value="ardillito28">ardillito28</option>
+  <option value="rabbit99">rabbit99</option>
+  <option value="unpwu">unpwu</option>
+  <option value="PetrifiedDropbear69">PetrifiedDropbear69</option>
+  <option value="ChaCharizard">ChaCharizard</option>
+  <option value="HalfCrimp">HalfCrimp</option>
+  <option value="coldfooter">coldfooter</option>
+  <option value="Ramennoodle">Ramennoodle</option>
+  <option value="Rufstufsan">Rufstufsan</option>
+  <option value="C3I2">C3I2</option>
+  <option value="Bempis2">Bempis2</option>
+</select>
+
+<FONT COLOR="#4fc1e8"> Member 2 </FONT>
+<select id="member2">
+  <option value="Nobody">-</option>
+  <option value="Soup">Soup</option>
+  <option value="vq">vq</option>
+  <option value="jjettas">jjettas</option>
+  <option value="SunnyStockholm">SunnyStockholm</option>
+  <option value="Yami">Yami</option>
+  <option value="pringles">pringles</option>
+  <option value="Oseram">Oseram</option>
+  <option value="Rizzlord">Rizzlord</option>
+  <option value="Koronesuki">Koronesuki</option>
+  <option value="Daybeha">Daybeha</option>
+  <option value="Pasta">Pasta</option>
+  <option value="PogChamp">PogChamp</option>
+  <option value="Ropianos">Ropianos</option>
+  <option value="Horse123">Horse123</option>
+  <option value="Rebin">Rebin</option>
+  <option value="Ishi">Ishi</option>
+  <option value="xXVisWizXx">xXVisWizXx</option>
+  <option value="Turb0clutcharen">Turb0clutcharen</option>
+  <option value="kanelbullar13">kanelbullar13</option>
+  <option value="Skvarre">Skvarre</option>
+  <option value="Pål">Pål</option>
+  <option value="Modi">Modi</option>
+  <option value="Bluebell">Bluebell</option>
+  <option value="Noggin_bops">Noggin_bops</option>
+  <option value="Lumos">Lumos</option>
+  <option value="Santa86">Santa86</option>
+  <option value="mercury">mercury</option>
+  <option value="DonkeyKong1">DonkeyKong1</option>
+  <option value="ardillito28">ardillito28</option>
+  <option value="rabbit99">rabbit99</option>
+  <option value="unpwu">unpwu</option>
+  <option value="PetrifiedDropbear69">PetrifiedDropbear69</option>
+  <option value="ChaCharizard">ChaCharizard</option>
+  <option value="HalfCrimp">HalfCrimp</option>
+  <option value="coldfooter">coldfooter</option>
+  <option value="Ramennoodle">Ramennoodle</option>
+  <option value="Rufstufsan">Rufstufsan</option>
+  <option value="C3I2">C3I2</option>
+  <option value="Bempis2">Bempis2</option>
+</select>
+
+<FONT COLOR="#a0d568"> Member 3 </FONT>
+<select id="member3">
+  <option value="Nobody">-</option>
+  <option value="Soup">Soup</option>
+  <option value="vq">vq</option>
+  <option value="jjettas">jjettas</option>
+  <option value="SunnyStockholm">SunnyStockholm</option>
+  <option value="Yami">Yami</option>
+  <option value="pringles">pringles</option>
+  <option value="Oseram">Oseram</option>
+  <option value="Rizzlord">Rizzlord</option>
+  <option value="Koronesuki">Koronesuki</option>
+  <option value="Daybeha">Daybeha</option>
+  <option value="Pasta">Pasta</option>
+  <option value="PogChamp">PogChamp</option>
+  <option value="Ropianos">Ropianos</option>
+  <option value="Horse123">Horse123</option>
+  <option value="Rebin">Rebin</option>
+  <option value="Ishi">Ishi</option>
+  <option value="xXVisWizXx">xXVisWizXx</option>
+  <option value="Turb0clutcharen">Turb0clutcharen</option>
+  <option value="kanelbullar13">kanelbullar13</option>
+  <option value="Skvarre">Skvarre</option>
+  <option value="Pål">Pål</option>
+  <option value="Modi">Modi</option>
+  <option value="Bluebell">Bluebell</option>
+  <option value="Noggin_bops">Noggin_bops</option>
+  <option value="Lumos">Lumos</option>
+  <option value="Santa86">Santa86</option>
+  <option value="mercury">mercury</option>
+  <option value="DonkeyKong1">DonkeyKong1</option>
+  <option value="ardillito28">ardillito28</option>
+  <option value="rabbit99">rabbit99</option>
+  <option value="unpwu">unpwu</option>
+  <option value="PetrifiedDropbear69">PetrifiedDropbear69</option>
+  <option value="ChaCharizard">ChaCharizard</option>
+  <option value="HalfCrimp">HalfCrimp</option>
+  <option value="coldfooter">coldfooter</option>
+  <option value="Ramennoodle">Ramennoodle</option>
+  <option value="Rufstufsan">Rufstufsan</option>
+  <option value="C3I2">C3I2</option>
+  <option value="Bempis2">Bempis2</option>
+</select>
+
+<FONT COLOR="#ffce54"> Member 4 </FONT>
+<select id="member4">
+  <option value="Nobody">-</option>
+  <option value="Soup">Soup</option>
+  <option value="vq">vq</option>
+  <option value="jjettas">jjettas</option>
+  <option value="SunnyStockholm">SunnyStockholm</option>
+  <option value="Yami">Yami</option>
+  <option value="pringles">pringles</option>
+  <option value="Oseram">Oseram</option>
+  <option value="Rizzlord">Rizzlord</option>
+  <option value="Koronesuki">Koronesuki</option>
+  <option value="Daybeha">Daybeha</option>
+  <option value="Pasta">Pasta</option>
+  <option value="PogChamp">PogChamp</option>
+  <option value="Ropianos">Ropianos</option>
+  <option value="Horse123">Horse123</option>
+  <option value="Rebin">Rebin</option>
+  <option value="Ishi">Ishi</option>
+  <option value="xXVisWizXx">xXVisWizXx</option>
+  <option value="Turb0clutcharen">Turb0clutcharen</option>
+  <option value="kanelbullar13">kanelbullar13</option>
+  <option value="Skvarre">Skvarre</option>
+  <option value="Pål">Pål</option>
+  <option value="Modi">Modi</option>
+  <option value="Bluebell">Bluebell</option>
+  <option value="Noggin_bops">Noggin_bops</option>
+  <option value="Lumos">Lumos</option>
+  <option value="Santa86">Santa86</option>
+  <option value="mercury">mercury</option>
+  <option value="DonkeyKong1">DonkeyKong1</option>
+  <option value="ardillito28">ardillito28</option>
+  <option value="rabbit99">rabbit99</option>
+  <option value="unpwu">unpwu</option>
+  <option value="PetrifiedDropbear69">PetrifiedDropbear69</option>
+  <option value="ChaCharizard">ChaCharizard</option>
+  <option value="HalfCrimp">HalfCrimp</option>
+  <option value="coldfooter">coldfooter</option>
+  <option value="Ramennoodle">Ramennoodle</option>
+  <option value="Rufstufsan">Rufstufsan</option>
+  <option value="C3I2">C3I2</option>
+  <option value="Bempis2">Bempis2</option>
+</select>
+
+<FONT COLOR="#ed5564"> Member 5 </FONT>
+<select id="member5">
+  <option value="Nobody">-</option>
+  <option value="Soup">Soup</option>
+  <option value="vq">vq</option>
+  <option value="jjettas">jjettas</option>
+  <option value="SunnyStockholm">SunnyStockholm</option>
+  <option value="Yami">Yami</option>
+  <option value="pringles">pringles</option>
+  <option value="Oseram">Oseram</option>
+  <option value="Rizzlord">Rizzlord</option>
+  <option value="Koronesuki">Koronesuki</option>
+  <option value="Daybeha">Daybeha</option>
+  <option value="Pasta">Pasta</option>
+  <option value="PogChamp">PogChamp</option>
+  <option value="Ropianos">Ropianos</option>
+  <option value="Horse123">Horse123</option>
+  <option value="Rebin">Rebin</option>
+  <option value="Ishi">Ishi</option>
+  <option value="xXVisWizXx">xXVisWizXx</option>
+  <option value="Turb0clutcharen">Turb0clutcharen</option>
+  <option value="kanelbullar13">kanelbullar13</option>
+  <option value="Skvarre">Skvarre</option>
+  <option value="Pål">Pål</option>
+  <option value="Modi">Modi</option>
+  <option value="Bluebell">Bluebell</option>
+  <option value="Noggin_bops">Noggin_bops</option>
+  <option value="Lumos">Lumos</option>
+  <option value="Santa86">Santa86</option>
+  <option value="mercury">mercury</option>
+  <option value="DonkeyKong1">DonkeyKong1</option>
+  <option value="ardillito28">ardillito28</option>
+  <option value="rabbit99">rabbit99</option>
+  <option value="unpwu">unpwu</option>
+  <option value="PetrifiedDropbear69">PetrifiedDropbear69</option>
+  <option value="ChaCharizard">ChaCharizard</option>
+  <option value="HalfCrimp">HalfCrimp</option>
+  <option value="coldfooter">coldfooter</option>
+  <option value="Ramennoodle">Ramennoodle</option>
+  <option value="Rufstufsan">Rufstufsan</option>
+  <option value="C3I2">C3I2</option>
+  <option value="Bempis2">Bempis2</option>
+</select>
+
+<div id="stacked_bar"></div>
+
+<script>
+  //OVERVIEW BAR PLOT
+  var over_margin = {top: 10, right: 30, bottom: 100, left: 60},
+      over_width = 860 - over_margin.left - over_margin.right,
+      over_height = 300 - over_margin.top - over_margin.bottom;
+  
+  // append the svg object to the body of the page
+  var over_svg = d3.select("#overview_bar")
+    .append("svg")
+      .attr("width", over_width + over_margin.left + over_margin.right)
+      .attr("height", over_height + over_margin.top + over_margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + over_margin.left + "," + over_margin.top + ")");
+
+  var over_x = d3.scaleBand()
+    .range([ 0, over_width ])
+    .padding(0.2);
+
+  var over_xAxis = over_svg.append("g")
+    .attr("transform", "translate(0," + over_height + ")")
+    
+  // Initialize the Y axis
+  var over_y = d3.scaleLinear()
+    .range([over_height, 0]);
+  var over_yAxis = over_svg.append("g")
+    .attr("class", "myYaxis")
+  
+  var attribute_name='statistics'
+
+  //STACKED BAR PLOT
+  var group_members=['Nobody', 'Nobody', 'Nobody', 'Nobody', 'Nobody']
+
+  var stackedData1=d3.stack()
+  var stackedData=[]
+
+  // set the dimensions and margins of the graph
+  margin = {top: 10, right: 30, bottom: 80, left: 50},
+      width = 460 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+  
+  // append the svg object to the body of the page
+  var svg = d3.select("#stacked_bar")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+  function name_to_idx(list,name){
+    for (let i = 0; i < list.length; i++) {
+      if(name==list[i]){
+        return i;
+      }
+    } 
+    return list.length;
+  }
+
+  
+  // Parse the Data
+  function update(){
+    //delete old stuff because i wasn't able to figure out the updating for the stacked version
+    
+    d3.csv("https://oehria.github.io/flipped_data.csv", function(data) {
+      
+      // List of subgroups = header of the csv files => alias
+      //var subgroups = data.columns.slice(1)
+      var subgroups =group_members//['infvis', 'statistics', 'maths']
+      //console.log(subgroups)
+    
+      // List of groups = species here = value of the first column called group -> I show them on the X axis
+      var groups = d3.map(data, function(d){return(d.alias)}).keys()
+      //console.log(groups)
+
+      // Add X axis
+      var x = d3.scaleBand()
+          .domain(groups)
+          .range([0, width])
+          .padding([0.2])
+      var xAxis=svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+      xAxis
+        .call(d3.axisBottom(x).tickSizeOuter(0));
+      xAxis.selectAll("text").attr("transform", "translate(-12,7)rotate(-45)").style("text-anchor", "end");
+    
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, 50])
+        .range([ height, 0 ]);
+      svg.append("g")
+        .call(d3.axisLeft(y));
+    
+      // color palette = one color per subgroup
+      var color = d3.scaleOrdinal()
+        .domain([0,1,2,3,4])
+        .range(['#ac92eb', '#4fc1e8', '#a0d568','#ffce54','#ed5564'])
+      //console.log(color)
+
+      //stack the data? --> stack per subgroup
+      stackedData=[]
+
+
+      // variable u: map data to existing bars
+      var u = svg.selectAll("rect")
+        .data(stackedData)
+        
+      // Show the bars
+      svg.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .enter().append("g")
+          .attr("fill", function(d) { 
+            //console.log(d.key)
+            var i=name_to_idx(subgroups,d.key)
+            console.log(i)
+            return color(i); })
+          .selectAll("rect")
+          // enter a second time = loop subgroup per subgroup to add all rectangles
+          .data(function(d) { return d; })
+          .enter().append("rect")
+            .transition()
+            .duration(0)
+            .attr("x", function(d) { return x(d.data.alias); })
+            .attr("y", function(d) { return y(d[1]); })
+            .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+            .attr("width",x.bandwidth()) 
+
+      svg.selectAll("rect").remove()
+
+      stackedData = stackedData1
+        .keys(subgroups)
+        (data)
+      console.log(stackedData)
+
+      
+
+             // Show the bars
+      svg.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData, d => d.alias)
+        .enter().append("g")
+          .attr("fill", function(d) { 
+            var i=name_to_idx(subgroups,d.key)
+            console.log(i)
+            return color(i); })
+          .selectAll("rect")
+          // enter a second time = loop subgroup per subgroup to add all rectangles
+          .data(function(d) { return d; })
+          .enter().append("rect")
+            .transition()
+            .duration(0)
+            .attr("x", function(d) { return x(d.data.alias); })
+            .attr("y", function(d) { return y(d[1]); })
+            .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+            .attr("width",x.bandwidth()) 
+
+
+      // const stacks = svg.append("g").selectAll(".layer").data(stackedData);
+      // const layer = stacks
+      //   .enter()
+      //   .append("g")
+      //   .attr("class", "layer")
+      //   .attr("fill", (_, i) => data[i].color);
+
+      // var u = layer.selectAll("rect")
+      //   .data(stackedData)
+
+      // u
+      //   .enter()
+      //   .append("rect")
+      //   .merge(u)
+      //   .transition()
+      //   .duration(1000)
+      //     .attr("fill", function(d) { return color(d.key); })
+      //     .attr("x", function(d) { return x(d.alias); })
+      //     .attr("y", function(d) { return y(d[1]); })
+      //     .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      //     .attr("width",x.bandwidth()) 
+    })
+  }
+
+  
+
+  function update_group_members(i, member){
+    group_members[i]=member
+    console.log(group_members)
+    update()
+  }
+
+  d3.select("#member1").on("change",function(d){
+    var selectedOption = d3.select(this).property("value")
+    //console.log(selectedOption)
+    update_group_members(0,selectedOption)
+  })
+
+  d3.select("#member2").on("change",function(d){
+    var selectedOption = d3.select(this).property("value")
+    //console.log(selectedOption)
+    update_group_members(1,selectedOption)
+  })
+  d3.select("#member3").on("change",function(d){
+    var selectedOption = d3.select(this).property("value")
+    //console.log(selectedOption)
+    update_group_members(2,selectedOption)
+  })
+  d3.select("#member4").on("change",function(d){
+    var selectedOption = d3.select(this).property("value")
+    //console.log(selectedOption)
+    update_group_members(3,selectedOption)
+  })
+  d3.select("#member5").on("change",function(d){
+    var selectedOption = d3.select(this).property("value")
+    //console.log(selectedOption)
+    update_group_members(4,selectedOption)
+  })
+  update()
+
+  //BAR PLOT OVERVIEW
+  function over_update(selectedVar) {
+    console.log("update_"+selectedVar)
+    // Parse the Data
+    d3.csv("https://oehria.github.io/barchartdata.csv", function(data) {
+      if(d3.select('#sort_checkbox').property("checked")){
+        data.sort(function(b, a) {
+          return a[selectedVar] - b[selectedVar];
+        });
+      }
+
+      // X axis
+      over_x.domain(data.map(function(d) { return d.alias; }))
+      over_xAxis.transition().duration(1000).call(d3.axisBottom(over_x))
+      over_xAxis.selectAll("text").attr("transform", "translate(-12,7)rotate(-90)").style("text-anchor", "end");
+  
+      // Add Y axis
+      over_y.domain([0, 10]);
+      over_yAxis.transition().duration(1000).call(d3.axisLeft(over_y));
+  
+      // variable u: map data to existing bars
+      var u = over_svg.selectAll("rect")
+        .data(data)
+  
+      // update bars
+      u
+        .enter()
+        .append("rect")
+        .merge(u)
+        .transition()
+        .duration(1000)
+          .attr("x", function(d) { return over_x(d.alias); })
+          .attr("y", function(d) { return over_y(d[selectedVar]); })
+          .attr("width", over_x.bandwidth())
+          .attr("height", function(d) { return over_height - over_y(d[selectedVar]); })
+          .attr("fill", "#606E8C")
+    })
+    attribute_name=selectedVar
+  }
+
+  d3.select("#sort_checkbox").on("click",function(){
+    over_update(attribute_name)
+  })
+
+  // Initialize plot
+  over_update(attribute_name)
+
+  </script>
