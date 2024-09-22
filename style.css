@@ -1,3 +1,4 @@
+/* General styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,13 +6,63 @@ body {
   background-color: #f4f4f4;
 }
 
-header {
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left panel for name and bio */
+.left-panel {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
+.left-panel h1 {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.left-panel p {
+  font-size: 1.2em;
+}
+
+/* Right panel for main content */
+.right-panel {
+  padding: 20px;
+  width: 70%;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.right-panel section {
+  margin-bottom: 30px;
+}
+
+.right-panel h2 {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Basic styling for the navigation links (if you want to add them later) */
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -25,18 +76,4 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
-}
-
-section {
-  padding: 20px;
-  margin: 20px;
-  background-color: white;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
 }
