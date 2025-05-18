@@ -1,61 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+    :root {
+      --lavender: #b99aff;
+      --lavender-light: #f4f0ff;
+      --text: #333;
+      --bg: #ffffff;
+      --card-bg: #fafafa;
+      --border: #e0d7f0;
     }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--lavender-light);
+      color: var(--text);
+    }
+
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
       padding: 2rem;
     }
-    h1, h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3rem;
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--lavender);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #666;
+      font-size: 1rem;
+    }
+
     .about {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
     }
+
     .about img {
-      width: 150px;
-      border-radius: 8px;
+      width: 160px;
+      height: auto;
+      border-radius: 1rem;
+      object-fit: cover;
     }
-    .publication {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
+
+    .about p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: var(--lavender);
       margin-bottom: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border-bottom: 2px solid var(--lavender);
+      display: inline-block;
     }
-    .teaser {
-      width: 100%;
-      max-width: 300px;
-      margin-top: 0.5rem;
-      border-radius: 4px;
+
+    .publication {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
-    a {
-      color: #0066cc;
+
+    .publication h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .publication a {
+      color: var(--lavender);
       text-decoration: none;
     }
-    a:hover {
+
+    .publication a:hover {
       text-decoration: underline;
     }
-    @media (max-width: 600px) {
+
+    .publication p {
+      margin: 0.3rem 0;
+    }
+
+    .teaser {
+      margin-top: 1rem;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
       .about {
         flex-direction: column;
         text-align: center;
       }
+
       .about img {
         width: 120px;
       }
@@ -64,11 +124,14 @@
 </head>
 <body>
   <div class="container">
-    <h1>Your Name</h1>
+    <header>
+      <h1>Your Name</h1>
+      <p>✨ Researcher / Engineer / Dreamer ✨</p>
+    </header>
 
     <section class="about">
-      <img src="portrait.png" alt="Portrait of You">
-      <p>Hey! I'm Your Name. I'm a [Your Role] working on [Your Interests]. Welcome to my site 💻✨</p>
+      <img src="portrait.png" alt="Portrait of You" />
+      <p>Hey! I’m Your Name — I work on [whatever you do], and I love exploring cool ideas in [your field]. This is my little corner of the internet where I share my work 💜</p>
     </section>
 
     <section>
@@ -76,12 +139,12 @@
 
       <div class="publication">
         <h3><a href="https://link-to-paper.com" target="_blank">Paper Title</a></h3>
-        <p><strong>Authors:</strong> You, Someone Else, etc.</p>
-        <p><strong>Abstract:</strong> This paper does this and that. Here's a short lil summary of what it's about.</p>
-        <img class="teaser" src="teaser1.png" alt="Teaser Image">
+        <p><strong>Authors:</strong> You, Collaborator, etc.</p>
+        <p><strong>Abstract:</strong> This paper does a really cool thing. We propose a new method for etc etc, and it actually works pretty well. 😌</p>
+        <img class="teaser" src="teaser1.png" alt="Teaser Image" />
       </div>
 
-      <!-- Add more .publication divs for more papers -->
+      <!-- More publication blocks here -->
     </section>
   </div>
 </body>
